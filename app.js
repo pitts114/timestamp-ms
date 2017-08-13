@@ -44,7 +44,12 @@ function parsePath(str) {
     obj.unix = Number(str)
     obj.natural = unixToNatural(obj.unix)
   }
-  //if niether, obj is still empty
+  //if niether, fields are null
+  else {
+  obj.unix = null
+  obj.natural = null
+}
+
   return obj
 }
 
