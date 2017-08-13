@@ -9,11 +9,11 @@ var app = express()
 const allNumbers = /^[0-9]*$/
 
 app.set('port', (process.env.PORT || 5000))
-//app.use(express.static(__dirname + '/public'))
+app.use(express.static(__dirname + '/public'))
 
-app.get('*', function(req, res) {
+app.get('/*', function(req, res) {
   var pathname = url.parse(req.url).pathname.replace(/%20/g, ' ').replace('/', '')
-  console.log(pathname)
+  console.log("Pathname: " + pathname)
 //  var obj = JSON.stringify(parsePath(pathname))
   var obj = parsePath(pathname)
   console.log(obj)
