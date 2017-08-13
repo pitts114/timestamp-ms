@@ -19,6 +19,9 @@
   "homepage": "https://github.com/pullman14/timestamp-ms#readme",
   "dependencies": {
     "chrono-node": "^1.3.5",
-    "express": "^4.15.4"
+    "express": "^4.15.4",
+    "number-to-date": "0.0.1",
+    "unix-timestamp": "^0.2.0",
+    "url": "^0.11.0"
   }
 }
