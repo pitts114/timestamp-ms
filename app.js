@@ -1,5 +1,4 @@
-//Hello World!
-
+//TODO parse the url /:dateStr instead of wildcard, will need to serve index.hmtl
 var express = require("express")
 var url = require("url")
 var chrono = require("chrono-node")
