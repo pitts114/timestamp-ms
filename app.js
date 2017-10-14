@@ -99,6 +99,12 @@ function unixToNatural(num) {
     + year.toString()
 }
 
-
+module.exports = {
+  parsePath: parsePath,
+  toISO: toISO,
+  isoToNatural: isoToNatural,
+  isoToUnix: isoToUnix,
+  unixToNatural: unixToNatural
+}
 
 //
