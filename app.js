@@ -13,10 +13,8 @@ app.use(express.static(__dirname + '/public'))
 
 app.get('/*', function(req, res) {
   var pathname = url.parse(req.url).pathname.replace(/%20/g, ' ').replace('/', '')
-  console.log("Pathname: " + pathname)
 //  var obj = JSON.stringify(parsePath(pathname))
   var obj = parsePath(pathname)
-  console.log(obj)
   res.setHeader('Content-Type', 'application/json');
   res.jsonp(obj)
 })
@@ -30,17 +28,14 @@ app.listen(app.get('port'), function() {
 //return
 function parsePath(str) {
   var obj = {}
-  console.log(str)
   var date = chrono.parse(str) //returns [] if not valid
   if (date.length != 0) { //natural date, may or may not be a full date
-    console.log(date[0].start.knownValues)
     var iso = toISO(date)
     if (iso) { //if a full date
       obj.unix = isoToUnix(iso)
       obj.natural = isoToNatural(iso)
     }
   } else if (str.match(allNumbers)) { //if unix format
-    console.log("unix")
     obj.unix = Number(str)
     obj.natural = unixToNatural(obj.unix)
   }
@@ -100,6 +95,7 @@ function unixToNatural(num) {
 }
 
 module.exports = {
+  app: app,
   parsePath: parsePath,
   toISO: toISO,
   isoToNatural: isoToNatural,
